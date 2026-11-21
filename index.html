@@ -1003,6 +1003,66 @@
         .looks-row { overflow: visible; }
       }
 
+      /* ---------- commerce additions: cart / orders / tracking / reviews ---------- */
+      .badge-pre, .badge-out { position:absolute; top:.7rem; right:.7rem; z-index:2; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; padding:.32rem .6rem; border-radius:999px; }
+      .badge-pre { background:#7c3aed; color:#fff; }
+      .badge-out { background:#b3261e; color:#fff; }
+      .card .card-actions { display:flex; gap:.5rem; margin-top:.8rem; flex-wrap:wrap; }
+      .card .card-actions .order { margin-top:0; flex:1 1 46%; }
+      .card .add-cart { flex:1 1 46%; min-height:2.75rem; border-radius:10px; border:1.5px solid #16130f; background:#16130f; color:#fff; font:inherit; font-weight:600; font-size:.92rem; cursor:pointer; }
+      .card .add-cart:disabled, .card .order.is-disabled { opacity:.45; pointer-events:none; }
+      .cart-nav-btn { position:relative; }
+      @media (max-width: 760px) { nav.links a.cart-nav-btn { display:inline-flex !important; } }
+      .cart-count { position:absolute; top:2px; right:2px; min-width:20px; height:20px; border-radius:999px; background:#b3261e; color:#fff; font-size:.72rem; font-weight:700; display:grid; place-items:center; padding:0 5px; }
+      .cart-count[hidden] { display:none; }
+      .shop-tools { display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin:0 auto 1.4rem; max-width:900px; }
+      .shop-tools input, .shop-tools select { font:inherit; padding:.65rem .9rem; border:1.5px solid var(--line); border-radius:999px; background:#fff; min-height:2.9rem; }
+      .shop-tools input { flex:1 1 220px; }
+      .cart-drawer { position:fixed; top:0; right:0; bottom:0; width:min(420px,94vw); background:#fffdf8; z-index:130; box-shadow:-20px 0 50px rgba(0,0,0,.3); padding:1.2rem; overflow-y:auto; }
+      .cart-drawer[hidden]{display:none}
+      .cart-line { display:flex; gap:.7rem; align-items:center; border:1px solid #e9e1d2; border-radius:12px; padding:.55rem; margin-bottom:.6rem; background:#fff; }
+      .cart-line img { width:52px; height:52px; object-fit:cover; border-radius:8px; }
+      .cart-line .cl-grow{flex:1;min-width:0}
+      .qty-btn { width:32px; height:32px; border-radius:50%; border:1.5px solid #16130f; background:#fff; cursor:pointer; font-weight:700; }
+      .order-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+      @media (max-width:640px){ .order-form-grid{grid-template-columns:1fr} }
+      .order-form-grid label { font-size:.82rem; font-weight:600; color:var(--maroon-800); display:block; }
+      .order-form-grid input, .order-form-grid select, .order-form-grid textarea { width:100%; margin-top:.3rem; padding:.6rem .75rem; border:1.5px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+      .order-form-grid .wide { grid-column:1/-1; }
+      .pay-strip, .del-strip { background:var(--porcelain-2); border:1px dashed var(--gold); border-radius:10px; padding:.6rem .8rem; font-size:.88rem; margin-top:.8rem; }
+      .track-box { max-width:640px; margin:0 auto; background:#fff; border:1px solid var(--line); border-radius:16px; padding:1.3rem; box-shadow:var(--shadow); }
+      .track-steps { display:flex; gap:.3rem; margin-top:1.2rem; }
+      .track-step { flex:1; text-align:center; font-size:.74rem; color:#8a8175; }
+      .track-step .dot { width:26px; height:26px; margin:0 auto .35rem; border-radius:50%; border:2px solid #d8d0c2; background:#fff; display:grid; place-items:center; font-weight:700; }
+      .track-step.done { color:#16130f; font-weight:600; }
+      .track-step.done .dot { background:#16130f; color:#fff; border-color:#16130f; }
+      .track-step.cancelled .dot { background:#b3261e; border-color:#b3261e; color:#fff; }
+      .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+      @media (max-width:820px){ .reviews-grid{grid-template-columns:1fr} }
+      .review-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.1rem; }
+      .review-card .stars-r { color:var(--gold); letter-spacing:.15em; }
+      .order-row-meta { font-size:.85rem; color:var(--ink-soft); }
+      .new-badge { background:#b3261e; color:#fff; border-radius:999px; font-size:.7rem; padding:.1rem .5rem; margin-left:.4rem; vertical-align:middle; }
+      .size-table { width:100%; border-collapse:collapse; font-size:.92rem; }
+      .size-table th, .size-table td { border:1px solid #e9e1d2; padding:.55rem .7rem; text-align:center; }
+      .size-table th { background:#16130f; color:#fff; }
+      .related-row { display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin-top:.5rem; }
+      .related-card { border:1px solid #e9e1d2; border-radius:12px; overflow:hidden; background:#fff; cursor:pointer; text-align:left; font:inherit; padding:0; }
+      .related-card img { width:100%; height:90px; object-fit:cover; }
+      .related-card span { display:block; padding:.45rem .55rem; font-size:.8rem; font-weight:600; }
+      /* rail: prevent clipping, allow drag */
+      .rail-stage { overflow:hidden; touch-action:pan-y; cursor:grab; }
+      .rail-stage:active { cursor:grabbing; }
+      @media (max-width:560px){ .rail-item{ width:96px; } .rail-item img{ height:110px; } }
+      /* looks: scrollable row on phones, visible selection */
+      .looks-scrollwrap { overflow-x:auto; overflow-y:visible; scrollbar-width:thin; padding:.6rem .2rem 1rem; -webkit-overflow-scrolling:touch; }
+      .looks-row { display:flex; flex-wrap:nowrap; justify-content:flex-start; max-width:none; width:max-content; min-width:100%; margin:0 auto; }
+      @media (min-width:761px){ .looks-row{ justify-content:center; width:auto; } }
+      .look-card { flex:0 0 168px; max-width:168px; transition:transform .45s cubic-bezier(.22,.9,.3,1), opacity .3s ease; }
+      @media (max-width:760px){ .look-card{ flex-basis:148px; max-width:148px; } .looks-row{ flex-wrap:nowrap; } }
+      .look-card.is-selected .lk-card { border-color:#16130f; box-shadow:0 0 0 2px #16130f, 0 18px 34px -18px rgba(22,19,15,.4); }
+      .look-card.will-flip { transition:none; }
+
       /* ---------- reduced motion safeguard ---------- */
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
@@ -1049,6 +1109,9 @@
           <a href="#about">About</a>
           <a href="#why">Why Us</a>
           <a href="#visit">Visit Us</a>
+          <a href="#track">Track Order</a>
+          <a href="#reviews">Reviews</a>
+          <a class="cart-nav-btn" href="#" id="cartNavBtn">Cart <span class="cart-count" id="cartCount" hidden>0</span></a>
           <a class="admin-link js-admin-open" href="#admin">Admin Panel</a>
           <a class="call js-phone-text js-tel" href="tel:+923219956155">0321 9956155</a>
         </nav>
@@ -1185,7 +1248,20 @@
           <p>A taste of what is on the shelves right now. Tap any item to ask or order on WhatsApp.</p>
           <div class="flourish"><span>◆</span></div>
         </div>
+        <div class="shop-tools reveal rvt">
+          <input id="shopSearch" type="search" placeholder="Search products by name or category…" aria-label="Search products" />
+          <select id="shopCatFilter" aria-label="Filter by category"><option value="">All Categories</option></select>
+          <select id="shopSort" aria-label="Sort products">
+            <option value="">Sort: Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="az">Name: A–Z</option>
+          </select>
+          <button class="pill-ghost" id="sizeGuideBtn1" type="button" style="min-height:2.9rem">Size Guide</button>
+        </div>
         <div class="grid" id="productGrid"></div>
+        <p class="demo-note" id="shopNoResults" hidden>No products match your search — try another name or category.</p>
+        <div class="pay-strip reveal rvt" id="deliveryStrip" style="max-width:760px;margin-left:auto;margin-right:auto"></div>
         <p class="demo-note reveal"><b>Please note:</b> products and prices shown are sample (demo) listings for this website preview. Visit the mall or message us on WhatsApp for today's actual stock and rates.</p>
       </div>
     </section>
@@ -1215,7 +1291,7 @@
             <div class="size-row" id="orbitSizes"></div>
             <div class="orbit-actions">
               <button class="pill-black" id="orbitQuickBtn" type="button">Quick View</button>
-              <a class="pill-ghost" id="orbitWaBtn" href="https://wa.me/923219956155" target="_blank" rel="noopener">Order on WhatsApp</a>
+              <button class="pill-ghost" id="orbitWaBtn" type="button">Order Now</button>
             </div>
             <div class="orbit-meta">
               <div class="orbit-counter" id="orbitCounter">01 <span>/ 01</span></div>
@@ -1261,7 +1337,7 @@
           <p>Six ready-styled looks built from pieces in the mall. Shuffle the line-up, tap a look, and see every piece inside it.</p>
           <div class="m-rule" aria-hidden="true"></div>
         </div>
-        <div class="looks-row reveal rvt" id="looksRow"></div>
+        <div class="looks-scrollwrap reveal rvt" id="looksScroll"><div class="looks-row" id="looksRow"></div></div>
         <div class="looks-actions reveal">
           <button class="pill-black" id="shuffleBtn" type="button">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -1311,10 +1387,32 @@
               <div class="wp" id="tryWornMeta">—</div>
             </div>
             <div class="swatches" id="trySwatches" aria-label="Fabric colour shades"></div>
-            <a class="order-mini" id="tryOrderBtn" href="https://wa.me/923219956155" target="_blank" rel="noopener">Order This Look</a>
+            <button class="order-mini" id="tryOrderBtn" type="button" style="border:0;cursor:pointer;font:inherit;font-size:.88rem">Order This Look</button>
           </div>
         </div>
         <p class="tryon-note reveal">Demo fitting room — outfits are shown from the shop's demo catalogue. Message us on WhatsApp for the real fabric, colours and stitching options.</p>
+      </div>
+    </section>
+
+    <!-- TRACK ORDER -->
+    <section id="track" style="background:var(--porcelain-2)">
+      <div class="wrap">
+        <div class="sec-head reveal"><p class="kicker grad-text">Order Status</p><h2>Track Your Order</h2><p>Enter your Order ID (like 1001) or the mobile number you ordered with.</p><div class="flourish"><span>◆</span></div></div>
+        <div class="track-box reveal rvt">
+          <form id="trackForm" style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <input id="trackInput" placeholder="Order ID or mobile number" style="flex:1 1 220px;font:inherit;padding:.65rem .9rem;border:1.5px solid var(--line);border-radius:999px" />
+            <button class="pill-black" type="submit">Track</button>
+          </form>
+          <div id="trackResult" style="margin-top:1rem"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+      <div class="wrap">
+        <div class="sec-head reveal"><p class="kicker grad-text">Customer Reviews</p><h2>What Shoppers Say</h2><div class="flourish"><span>◆</span></div></div>
+        <div class="reviews-grid" id="reviewsGrid"></div>
       </div>
     </section>
 
@@ -1486,6 +1584,8 @@
         <div id="adminDash" hidden>
           <div class="admin-tabs" role="tablist" aria-label="Admin sections">
             <button class="admin-tab is-on" data-tab="products" type="button">Products</button>
+            <button class="admin-tab" data-tab="orders" type="button">Orders <span class="new-badge" id="ordersNewBadge" hidden>0 New</span></button>
+            <button class="admin-tab" data-tab="reviews" type="button">Reviews</button>
             <button class="admin-tab" data-tab="offers" type="button">Offers &amp; Banners</button>
             <button class="admin-tab" data-tab="settings" type="button">Settings</button>
           </div>
@@ -1530,6 +1630,11 @@
                 <label class="admin-wide-field">Description
                   <textarea id="pfDesc" rows="2" placeholder="Short line about the fabric…"></textarea>
                 </label>
+                <label style="display:flex;gap:.5rem;align-items:center"><input type="checkbox" id="pfPreorder" style="width:auto;margin:0" /> Pre-Order</label>
+                <label>Pre-Order expected note
+                  <input id="pfPreorderNote" placeholder="Expected: 10 days" />
+                </label>
+                <label style="display:flex;gap:.5rem;align-items:center"><input type="checkbox" id="pfSoldOut" style="width:auto;margin:0" /> Sold Out</label>
               </div>
               <img class="pf-preview" id="pfPreview" alt="Product photo preview" hidden />
               <div class="admin-form-actions">
@@ -1539,6 +1644,28 @@
               <p class="admin-note">Saved products appear on the storefront instantly — no refresh needed.</p>
             </form>
             <div class="admin-list" id="adminProductList"></div>
+          </div>
+
+          <div class="admin-pane" id="pane-orders" hidden>
+            <div class="admin-pane-head"><h3>Orders <span class="admin-count" id="orderCount"></span></h3></div>
+            <p class="admin-note">Demo note: yahan wohi orders dikhte hain jo is browser mein kiye gaye hon — asal orders owner ke WhatsApp par bhi pohanchte hain.</p>
+            <div class="admin-list" id="adminOrderList"></div>
+          </div>
+
+          <div class="admin-pane" id="pane-reviews" hidden>
+            <div class="admin-pane-head"><h3>Reviews</h3></div>
+            <form class="admin-card admin-form" id="reviewForm">
+              <div class="admin-grid">
+                <label>Customer name <input id="rfName" required placeholder="e.g. Ahmed Raza" /></label>
+                <label>Stars (1–5) <input id="rfStars" type="number" min="1" max="5" value="5" required /></label>
+                <label class="admin-wide-field">Review text <textarea id="rfText" rows="2" required placeholder="Short review…"></textarea></label>
+              </div>
+              <div class="admin-form-actions">
+                <button class="btn btn-wa admin-btn" id="reviewSubmitBtn" type="submit">Add Review</button>
+                <button class="btn btn-ghost admin-btn" id="reviewCancelEdit" type="button" hidden>Cancel Edit</button>
+              </div>
+            </form>
+            <div class="admin-list" id="adminReviewList"></div>
           </div>
 
           <div class="admin-pane" id="pane-offers" hidden>
@@ -1583,6 +1710,24 @@
                 <label class="admin-wide-field">Facebook page URL
                   <input id="sfFb" />
                 </label>
+                <label>Delivery — Abbottabad city charges (Rs)
+                  <input id="sfDelLocal" type="number" min="0" />
+                </label>
+                <label>Delivery — Abbottabad time
+                  <input id="sfDelLocalTime" placeholder="1–2 days" />
+                </label>
+                <label>Delivery — Nationwide charges (Rs)
+                  <input id="sfDelNation" type="number" min="0" />
+                </label>
+                <label>Delivery — Nationwide time
+                  <input id="sfDelNationTime" placeholder="3–5 days" />
+                </label>
+                <label>JazzCash account details (optional — shown at checkout only if filled)
+                  <input id="sfJazz" placeholder="Leave empty to hide" />
+                </label>
+                <label>Easypaisa account details (optional — shown at checkout only if filled)
+                  <input id="sfEasy" placeholder="Leave empty to hide" />
+                </label>
               </div>
               <div class="admin-form-actions">
                 <button class="btn btn-wa admin-btn" type="submit">Save Settings</button>
@@ -1616,14 +1761,18 @@
             <h3 id="qvName">—</h3>
             <p class="q-price" id="qvPrice">—</p>
             <p class="q-desc" id="qvDesc"></p>
-            <p class="o-opt-label">Size / Length</p>
+            <p class="o-opt-label">Size / Length &nbsp;<button type="button" id="sizeGuideBtn2" style="background:none;border:0;color:#1d6ff2;cursor:pointer;font:inherit;font-size:.8rem;text-transform:none;letter-spacing:0">Size guide</button></p>
             <div class="size-row" id="qvSizes"></div>
             <p class="o-opt-label">Colour</p>
             <div class="qv-swatches" id="qvColors"></div>
+            <div id="qvBadges"></div>
             <div class="qv-actions">
-              <a class="pill-black" id="qvWaBtn" href="https://wa.me/923219956155" target="_blank" rel="noopener">Order on WhatsApp</a>
+              <button class="pill-black" id="qvOrderBtn" type="button">Order Now</button>
+              <button class="pill-ghost" id="qvCartBtn" type="button">Add to Cart</button>
               <button class="pill-ghost" id="qvDoneBtn" type="button">Keep Browsing</button>
             </div>
+            <p class="o-opt-label">You May Also Like</p>
+            <div class="related-row" id="qvRelated"></div>
           </div>
         </div>
       </div>
@@ -1648,10 +1797,83 @@
               <span class="lt-val" id="lookTotal">Rs 0</span>
             </div>
             <div class="qv-actions">
-              <a class="pill-black" id="lookOrderBtn" href="https://wa.me/923219956155" target="_blank" rel="noopener">Order Full Look</a>
+              <button class="pill-black" id="lookOrderBtn" type="button">Order Full Look</button>
               <button class="pill-ghost" id="lookDoneBtn" type="button">Keep Browsing</button>
             </div>
+            <p style="font-size:.85rem;color:#7c7468;margin-top:.6rem">“Order Full Look” adds every ticked piece to your cart as ONE combined order.</p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer" hidden role="dialog" aria-label="Shopping cart">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 style="margin:0;font-family:Jost,sans-serif;text-transform:uppercase">Your Cart</h3>
+        <button class="qv-close" id="cartClose" type="button" style="position:static" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartLines" style="margin-top:1rem"></div>
+      <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.15rem;border-top:1px solid #ddd3bf;padding-top:.9rem;margin-top:.6rem"><span>Total</span><span id="cartTotal">Rs 0</span></div>
+      <button class="pill-black" id="cartCheckoutBtn" type="button" style="width:100%;margin-top:1rem">Checkout — Place Order</button>
+      <p style="font-size:.85rem;color:#7c7468">Checkout opens one order form for all items — one combined order, one WhatsApp message.</p>
+    </div>
+
+    <!-- ORDER FORM -->
+    <div class="qv-overlay" id="orderOverlay" hidden role="dialog" aria-modal="true" aria-label="Place your order">
+      <div class="qv-card" style="max-width:640px">
+        <button class="qv-close" id="orderClose" type="button" aria-label="Close order form">✕</button>
+        <div style="padding:clamp(1.3rem,3.5vw,2rem)">
+          <div id="orderFormWrap">
+            <p class="q-label" style="font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:#8a8175;font-weight:600;margin:0">Place Your Order</p>
+            <h3 style="font-family:Jost,sans-serif;text-transform:uppercase;margin:.4rem 0 .8rem">Order Details</h3>
+            <div id="orderItemsSummary" style="background:#fff;border:1px solid #e9e1d2;border-radius:12px;padding:.8rem;margin-bottom:1rem;font-size:.92rem"></div>
+            <form id="orderForm">
+              <div class="order-form-grid">
+                <label>Your name *<input id="ofName" required placeholder="Full name" /></label>
+                <label>Mobile number *<input id="ofPhone" required placeholder="03xx xxxxxxx" inputmode="tel" /></label>
+                <label class="wide">Address / City *<input id="ofAddress" required placeholder="House, street, area, city" /></label>
+                <label>Size / Colour (if different)<input id="ofVariant" placeholder="e.g. M · Navy" /></label>
+                <label>Quantity<input id="ofQty" type="number" min="1" value="1" /></label>
+                <label>Delivery area
+                  <select id="ofDelivery"><option value="local">Abbottabad city</option><option value="nation">Nationwide</option></select>
+                </label>
+                <label>Payment method
+                  <select id="ofPayment"><option value="Cash on Delivery">Cash on Delivery</option><option value="JazzCash">JazzCash</option><option value="Easypaisa">Easypaisa</option></select>
+                </label>
+                <label class="wide">Note (optional)<textarea id="ofNote" rows="2" placeholder="Anything the shop should know…"></textarea></label>
+              </div>
+              <div class="del-strip" id="orderDeliveryLine"></div>
+              <div class="pay-strip" id="orderPaymentLine"></div>
+              <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.15rem;margin-top:1rem"><span>Grand Total</span><span id="orderGrandTotal">Rs 0</span></div>
+              <button class="pill-black" type="submit" style="width:100%;margin-top:1rem">Confirm Order</button>
+            </form>
+          </div>
+          <div id="orderSuccess" hidden style="text-align:center;padding:1rem 0">
+            <div style="font-size:2.4rem" aria-hidden="true">✓</div>
+            <h3 style="font-family:Jost,sans-serif;text-transform:uppercase">Order Placed!</h3>
+            <p id="successText"></p>
+            <p id="successPre" style="font-weight:700;color:#7c3aed"></p>
+            <a class="pill-black" id="successWaBtn" href="#" target="_blank" rel="noopener" style="margin-top:.6rem">Send Order on WhatsApp</a>
+            <div><button class="pill-ghost" id="successDoneBtn" type="button" style="margin-top:.8rem">Done</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIZE GUIDE -->
+    <div class="qv-overlay" id="sizeOverlay" hidden role="dialog" aria-modal="true" aria-label="Size guide">
+      <div class="qv-card" style="max-width:560px">
+        <button class="qv-close" id="sizeClose" type="button" aria-label="Close size guide">✕</button>
+        <div style="padding:clamp(1.3rem,3.5vw,2rem)">
+          <h3 style="font-family:Jost,sans-serif;text-transform:uppercase;margin-top:0">Size Guide — Garments</h3>
+          <table class="size-table">
+            <tr><th>Size</th><th>Chest (inches)</th><th>Length (inches)</th><th>Shoulder (inches)</th></tr>
+            <tr><td>S</td><td>38</td><td>40</td><td>17</td></tr>
+            <tr><td>M</td><td>40</td><td>42</td><td>18</td></tr>
+            <tr><td>L</td><td>42</td><td>44</td><td>19</td></tr>
+            <tr><td>XL</td><td>44</td><td>46</td><td>20</td></tr>
+          </table>
+          <p style="color:#7c7468;font-size:.9rem">Unstitched suits are sold by length (metres) — pick the length in the product options. When unsure, message us on WhatsApp and we will guide you.</p>
         </div>
       </div>
     </div>
@@ -1673,8 +1895,16 @@
         address: "N-35, Karakoram Highway side, Abbottabad, Khyber Pakhtunkhwa",
         addressShort: "N-35, Karakoram Highway side, Abbottabad",
         timing: "Open Daily",
-        facebook: "https://www.facebook.com/100467524996621/"
+        facebook: "https://www.facebook.com/100467524996621/",
+        deliveryLocal: 200, deliveryLocalTime: "1–2 days",
+        deliveryNation: 350, deliveryNationTime: "3–5 days",
+        jazzcash: "", easypaisa: ""
       };
+      var SEED_REVIEWS = [
+        { id: "r1", name: "Ahmed Raza", stars: 5, text: "Best cloth shop on the highway — genuine rates and huge variety for the whole family." },
+        { id: "r2", name: "Fatima Bibi", stars: 5, text: "Lawn collection is fresh every season. Staff helps you pick the right fabric without any pressure." },
+        { id: "r3", name: "Usman Khan", stars: 4, text: "Got my Eid kurta stitched fabric from here. Quality is solid and prices are fair." }
+      ];
       var SEED_PRODUCTS = [
         { id: "p1", name: "Premium Cotton Unstitched Suit", cat: "Gents Fabric", price: 4999, unit: "per suit", img: "assets/p-cotton.jpg", modelImg: "assets/cat-ready.png", alt: "Folded premium cotton unstitched suit fabric with buttons and labels", desc: "Breathable pure-feel cotton with a soft finish — the everyday favourite for shalwar kameez.", colors: ["White", "Cream", "Sky Blue"], variants: { "White": "assets/cat-ready.png" } },
         { id: "p2", name: "Wash & Wear Fabric", cat: "Gents Fabric", price: 3299, unit: "per suit", img: "assets/p-washwear.webp", modelImg: "assets/p-washwear.webp", alt: "Wash and wear unstitched shalwar kameez fabric worn by a model", desc: "Wrinkle-resistant, colour-fast and easy to stitch. Made for daily wear, season after season.", colors: ["Grey", "Navy", "Brown"] },
@@ -1702,7 +1932,7 @@
         { id: "t5", tcat: "Kurta", name: "Classic White Kurta", price: 2499, img: "assets/cat-ready.png", modelImg: "assets/cat-ready.png", colors: ["White", "Cream", "Grey"], variants: { "White": "assets/cat-ready.png" } }
       ];
       function seedState() {
-        return JSON.parse(JSON.stringify({ settings: SEED_SETTINGS, products: SEED_PRODUCTS, offers: SEED_OFFERS, tryon: SEED_TRYON }));
+        return JSON.parse(JSON.stringify({ settings: SEED_SETTINGS, products: SEED_PRODUCTS, offers: SEED_OFFERS, tryon: SEED_TRYON, orders: [], cart: [], reviews: SEED_REVIEWS, nextOrderNum: 1001 }));
       }
       var state;
       try {
@@ -1710,6 +1940,16 @@
         state = rawState ? JSON.parse(rawState) : seedState();
         if (!state || !state.settings || !state.products || !state.offers || !state.tryon) state = seedState();
       } catch (e) { state = seedState(); }
+      /* migrate older saves: add commerce fields without wiping products/settings */
+      (function migrateState() {
+        var changed = false;
+        Object.keys(SEED_SETTINGS).forEach(function (k) { if (state.settings[k] === undefined) { state.settings[k] = SEED_SETTINGS[k]; changed = true; } });
+        if (!Array.isArray(state.orders)) { state.orders = []; changed = true; }
+        if (!Array.isArray(state.cart)) { state.cart = []; changed = true; }
+        if (!Array.isArray(state.reviews)) { state.reviews = JSON.parse(JSON.stringify(SEED_REVIEWS)); changed = true; }
+        if (!state.nextOrderNum) { state.nextOrderNum = 1001; changed = true; }
+        if (changed) { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {} }
+      })();
       /* Drop listings p9–p13 from any previously saved state: those entries
          were added to this demo by mistake (they belong to a different shop)
          and must not reappear from an older browser save. */
@@ -1751,30 +1991,74 @@
         if ($("mapBtn")) $("mapBtn").setAttribute("href", "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(s.shopName + " " + s.addressShort));
       }
       var io = null;
+      var shopQuery = "", shopSortMode = "", shopCatMode = "";
+      function visibleProducts() {
+        var list = state.products.slice();
+        if (shopCatMode) list = list.filter(function (p) { return p.cat === shopCatMode; });
+        if (shopQuery) {
+          var q = shopQuery.toLowerCase();
+          list = list.filter(function (p) { return (p.name + " " + p.cat).toLowerCase().indexOf(q) > -1; });
+        }
+        if (shopSortMode === "low") list.sort(function (a, b) { return a.price - b.price; });
+        if (shopSortMode === "high") list.sort(function (a, b) { return b.price - a.price; });
+        if (shopSortMode === "az") list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+        return list;
+      }
       function renderProducts() {
         var grid = $("productGrid");
         if (!grid) return;
+        var catSel = $("shopCatFilter");
+        if (catSel) {
+          var cats = [];
+          state.products.forEach(function (p) { if (cats.indexOf(p.cat) < 0) cats.push(p.cat); });
+          var cur = catSel.value;
+          catSel.innerHTML = '<option value="">All Categories</option>' + cats.map(function (c) { return '<option value="' + esc(c) + '">' + esc(c) + "</option>"; }).join("");
+          catSel.value = cats.indexOf(cur) > -1 ? cur : "";
+          shopCatMode = catSel.value;
+        }
         grid.innerHTML = "";
+        var list = visibleProducts();
+        var noRes = $("shopNoResults");
+        if (noRes) noRes.hidden = !(state.products.length && !list.length);
         if (!state.products.length) {
           grid.innerHTML = '<p class="demo-note">No products yet — the shop owner can add products from the Admin Panel.</p>';
           return;
         }
-        state.products.forEach(function (p, i) {
+        list.forEach(function (p, i) {
           var priceTxt = fmtPrice(p.price);
-          var msg = "Assalam-o-Alaikum! I am interested in: " + p.name + " (" + priceTxt + " " + p.unit + ") at " + state.settings.shopName + ". Is it available?";
           var card = document.createElement("article");
           card.className = "card reveal rvt";
           card.style.setProperty("--d", (i % 4) * 0.09 + "s");
           var colorsHtml = (p.colors && p.colors.length) ? '<p class="colors">Colours: ' + esc(p.colors.join(", ")) + "</p>" : "";
+          var badges = (p.preorder ? '<span class="badge-pre">Pre-Order' + (p.preorderNote ? " · " + esc(p.preorderNote) : "") + "</span>" : "") + (p.soldOut ? '<span class="badge-out">Sold Out</span>' : "");
+          var dis = p.soldOut ? " disabled" : "";
           card.innerHTML =
-            '<div class="ph"><img src="' + esc(p.img) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" /><span class="tag">' + esc(p.cat) + "</span></div>" +
+            '<div class="ph"><img src="' + esc(p.img) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" /><span class="tag">' + esc(p.cat) + "</span>" + badges + "</div>" +
             '<div class="body"><h3>' + esc(p.name) + "</h3>" +
             '<p class="desc">' + esc(p.desc) + "</p>" + colorsHtml +
             '<div class="price-row"><span class="price">' + priceTxt + '</span><span class="unit">' + esc(p.unit) + '</span><span class="demo-chip">Demo price</span></div>' +
-            '<a class="order" target="_blank" rel="noopener" href="' + waLink(msg) + '">' + waSvg + "Order on WhatsApp</a></div>";
+            '<div class="card-actions">' +
+            '<button class="order" type="button" data-card-order="' + esc(p.id) + '"' + dis + " style=\"border:0;cursor:pointer;font:inherit\">" + waSvg + "Order Now</button>" +
+            '<button class="add-cart" type="button" data-card-cart="' + esc(p.id) + '"' + dis + ">Add to Cart</button>" +
+            '<button class="pill-ghost" type="button" data-card-view="' + esc(p.id) + '" style="flex:1 1 100%;min-height:2.4rem">Quick View</button>' +
+            "</div></div>";
           grid.appendChild(card);
           if (io) io.observe(card); else card.classList.add("in");
         });
+        renderDeliveryStrip();
+      }
+      function renderDeliveryStrip() {
+        var s = state.settings, el = $("deliveryStrip");
+        if (!el) return;
+        el.innerHTML = "<b>Delivery:</b> Abbottabad city " + fmtPrice(s.deliveryLocal) + " · " + esc(s.deliveryLocalTime) + " &nbsp;|&nbsp; Nationwide " + fmtPrice(s.deliveryNation) + " · " + esc(s.deliveryNationTime) + "<br><b>Payment:</b> Cash on Delivery · JazzCash · Easypaisa" + (s.jazzcash ? "<br>JazzCash: " + esc(s.jazzcash) : "") + (s.easypaisa ? "<br>Easypaisa: " + esc(s.easypaisa) : "");
+      }
+      function renderReviews() {
+        var g = $("reviewsGrid");
+        if (!g) return;
+        g.innerHTML = state.reviews.map(function (r) {
+          var stars = ""; for (var i = 0; i < 5; i++) stars += i < (Number(r.stars) || 5) ? "★" : "☆";
+          return '<div class="review-card reveal rvt"><div class="stars-r">' + stars + '</div><p style="margin:.5rem 0">“' + esc(r.text) + '”</p><b>' + esc(r.name) + "</b></div>";
+        }).join("") || '<p class="demo-note">No reviews yet.</p>';
       }
       function renderMarquee() {
         var track = $("marqueeTrack");
@@ -1855,6 +2139,21 @@
       applySettings();
       renderProducts();
       renderMarquee();
+      renderReviews();
+      if ($("shopSearch")) $("shopSearch").addEventListener("input", function () { shopQuery = this.value.trim(); renderProducts(); });
+      if ($("shopSort")) $("shopSort").addEventListener("change", function () { shopSortMode = this.value; renderProducts(); });
+      if ($("shopCatFilter")) $("shopCatFilter").addEventListener("change", function () { shopCatMode = this.value; renderProducts(); });
+      if ($("productGrid")) $("productGrid").addEventListener("click", function (ev) {
+        var ob = ev.target.closest("[data-card-order]"), cb = ev.target.closest("[data-card-cart]"), vb = ev.target.closest("[data-card-view]");
+        var id = ob ? ob.getAttribute("data-card-order") : cb ? cb.getAttribute("data-card-cart") : vb ? vb.getAttribute("data-card-view") : null;
+        if (!id) return;
+        var p = null; state.products.forEach(function (x) { if (x.id === id) p = x; });
+        if (!p) return;
+        if (vb) { openQuickView(p); return; }
+        if (p.soldOut) return;
+        if (ob) openOrderForm([{ productId: p.id, name: p.name, variant: mechSizes(p)[0] + ((p.colors && p.colors[0]) ? " · " + p.colors[0] : ""), price: Number(p.price) || 0, qty: 1, preorder: !!p.preorder }], "single");
+        if (cb) { addToCart(p.id, mechSizes(p)[0] + ((p.colors && p.colors[0]) ? " · " + p.colors[0] : ""), 1); openCart(); }
+      });
 
       /* ================= admin panel ================= */
       var adminAuthed = false, editingProductId = null, editingOfferId = null, pendingPhoto = "";
@@ -1879,6 +2178,8 @@
         $("adminLogoutBtn").hidden = false;
         renderAdminProducts();
         renderAdminOffers();
+        renderAdminOrders();
+        renderAdminReviews();
         fillSettingsForm();
       }
       document.querySelectorAll(".js-admin-open").forEach(function (el) {
@@ -1918,8 +2219,8 @@
         tab.addEventListener("click", function () {
           document.querySelectorAll(".admin-tab").forEach(function (t) { t.classList.remove("is-on"); });
           tab.classList.add("is-on");
-          ["products", "offers", "settings"].forEach(function (k) {
-            $("pane-" + k).hidden = (k !== tab.getAttribute("data-tab"));
+          ["products", "orders", "reviews", "offers", "settings"].forEach(function (k) {
+            var pane = $("pane-" + k); if (pane) pane.hidden = (k !== tab.getAttribute("data-tab"));
           });
         });
       });
@@ -1932,7 +2233,9 @@
             '<img src="' + esc(p.img) + '" alt="" />' +
             '<div class="grow"><div class="nm">' + esc(p.name) + '</div>' +
             '<div class="meta"><b>' + fmtPrice(p.price) + '</b> ' + esc(p.unit) + " · " + esc(p.cat) +
-            ((p.colors && p.colors.length) ? " · " + esc(p.colors.join(", ")) : "") + "</div></div>" +
+            ((p.colors && p.colors.length) ? " · " + esc(p.colors.join(", ")) : "") +
+            (p.preorder ? ' · <b>Pre-Order</b>' + (p.preorderNote ? " (" + esc(p.preorderNote) + ")" : "") : "") +
+            (p.soldOut ? ' · <b style="color:#b3261e">Sold Out</b>' : "") + "</div></div>" +
             '<div class="acts">' +
             '<button class="mini-btn edit" type="button" data-act="edit" data-id="' + p.id + '">Edit</button>' +
             '<button class="mini-btn del" type="button" data-act="del" data-id="' + p.id + '">Delete</button>' +
@@ -1988,7 +2291,10 @@
           cat: $("pfCat").value,
           colors: colors,
           img: img,
-          desc: $("pfDesc").value.trim()
+          desc: $("pfDesc").value.trim(),
+          preorder: $("pfPreorder").checked,
+          preorderNote: $("pfPreorderNote").value.trim(),
+          soldOut: $("pfSoldOut").checked
         };
         if (!data.name) return;
         if (editingProductId) {
@@ -2029,6 +2335,9 @@
           $("pfCat").value = prod.cat;
           $("pfColors").value = (prod.colors || []).join(", ");
           $("pfDesc").value = prod.desc || "";
+          $("pfPreorder").checked = !!prod.preorder;
+          $("pfPreorderNote").value = prod.preorderNote || "";
+          $("pfSoldOut").checked = !!prod.soldOut;
           if (String(prod.img).indexOf("data:") === 0) {
             pendingPhoto = prod.img; $("pfImg").value = "";
             $("pfPreview").src = prod.img; $("pfPreview").hidden = false;
@@ -2136,6 +2445,12 @@
         $("sfAddr").value = s.address;
         $("sfAddrShort").value = s.addressShort;
         $("sfFb").value = s.facebook;
+        $("sfDelLocal").value = s.deliveryLocal;
+        $("sfDelLocalTime").value = s.deliveryLocalTime;
+        $("sfDelNation").value = s.deliveryNation;
+        $("sfDelNationTime").value = s.deliveryNationTime;
+        $("sfJazz").value = s.jazzcash || "";
+        $("sfEasy").value = s.easypaisa || "";
       }
       $("settingsForm").addEventListener("submit", function (ev) {
         ev.preventDefault();
@@ -2147,6 +2462,12 @@
         s.address = $("sfAddr").value.trim() || s.address;
         s.addressShort = $("sfAddrShort").value.trim() || s.addressShort;
         s.facebook = $("sfFb").value.trim() || s.facebook;
+        s.deliveryLocal = parseInt($("sfDelLocal").value, 10) || 0;
+        s.deliveryLocalTime = $("sfDelLocalTime").value.trim() || s.deliveryLocalTime;
+        s.deliveryNation = parseInt($("sfDelNation").value, 10) || 0;
+        s.deliveryNationTime = $("sfDelNationTime").value.trim() || s.deliveryNationTime;
+        s.jazzcash = $("sfJazz").value.trim();
+        s.easypaisa = $("sfEasy").value.trim();
         saveState();
         applySettings();
         renderProducts();
@@ -2184,6 +2505,211 @@
       });
       if (window.location.hash === "#admin") openAdmin();
 
+      /* ================= cart + orders + tracking + reviews admin ================= */
+      function findProduct(id) { var f = null; state.products.forEach(function (p) { if (p.id === id) f = p; }); return f; }
+      function cartCountTotal() { return state.cart.reduce(function (s, l) { return s + l.qty; }, 0); }
+      function cartItemsTotal() { return state.cart.reduce(function (s, l) { return s + l.price * l.qty; }, 0); }
+      function updateCartBadge() { var n = cartCountTotal(), b = $("cartCount"); if (b) { b.textContent = n; b.hidden = n === 0; } }
+      function addToCart(productId, variant, qty) {
+        var p = findProduct(productId); if (!p || p.soldOut) return;
+        var found = null;
+        state.cart.forEach(function (l) { if (l.productId === productId && l.variant === variant) found = l; });
+        if (found) found.qty += (qty || 1);
+        else state.cart.push({ productId: productId, name: p.name, img: p.img, variant: variant || "", price: Number(p.price) || 0, qty: qty || 1, preorder: !!p.preorder });
+        saveState(); renderCart(); updateCartBadge();
+      }
+      function renderCart() {
+        var wrap = $("cartLines"); if (!wrap) return;
+        if (!state.cart.length) { wrap.innerHTML = '<p style="color:#7c7468">Your cart is empty — add something you like.</p>'; }
+        else wrap.innerHTML = state.cart.map(function (l, i) {
+          return '<div class="cart-line"><img src="' + esc(l.img) + '" alt="" /><div class="cl-grow"><b>' + esc(l.name) + '</b><div style="font-size:.82rem;color:#7c7468">' + esc(l.variant) + (l.preorder ? " · PRE-ORDER" : "") + '</div><div>' + fmtPrice(l.price) + '</div></div>' +
+            '<button class="qty-btn" type="button" data-cq="-1" data-ci="' + i + '" aria-label="Decrease quantity">−</button><span style="min-width:1.4rem;text-align:center;font-weight:700">' + l.qty + '</span><button class="qty-btn" type="button" data-cq="1" data-ci="' + i + '" aria-label="Increase quantity">+</button>' +
+            '<button class="mini-btn del" type="button" data-crem="' + i + '">Remove</button></div>';
+        }).join("");
+        $("cartTotal").textContent = fmtPrice(cartItemsTotal());
+        updateCartBadge();
+      }
+      function openCart() { renderCart(); $("cartDrawer").hidden = false; }
+      function closeCart() { $("cartDrawer").hidden = true; }
+      if ($("cartNavBtn")) $("cartNavBtn").addEventListener("click", function (ev) { ev.preventDefault(); openCart(); });
+      if ($("cartClose")) $("cartClose").addEventListener("click", closeCart);
+      if ($("cartLines")) $("cartLines").addEventListener("click", function (ev) {
+        var qb = ev.target.closest("[data-cq]"), rb = ev.target.closest("[data-crem]");
+        if (qb) { var i = parseInt(qb.getAttribute("data-ci"), 10); state.cart[i].qty += parseInt(qb.getAttribute("data-cq"), 10); if (state.cart[i].qty < 1) state.cart.splice(i, 1); saveState(); renderCart(); }
+        if (rb) { state.cart.splice(parseInt(rb.getAttribute("data-crem"), 10), 1); saveState(); renderCart(); }
+      });
+      if ($("cartCheckoutBtn")) $("cartCheckoutBtn").addEventListener("click", function () {
+        if (!state.cart.length) return;
+        var items = state.cart.map(function (l) { return { productId: l.productId, name: l.name, variant: l.variant, price: l.price, qty: l.qty, preorder: !!l.preorder }; });
+        closeCart();
+        openOrderForm(items, "cart");
+      });
+      /* ---- order form ---- */
+      var orderCtx = { items: [], source: "single" };
+      function orderItemsTotal() { return orderCtx.items.reduce(function (s, l) { return s + l.price * l.qty; }, 0); }
+      function deliveryCharge() { return $("ofDelivery").value === "nation" ? Number(state.settings.deliveryNation) || 0 : Number(state.settings.deliveryLocal) || 0; }
+      function refreshOrderTotals() {
+        var s = state.settings;
+        var isNation = $("ofDelivery").value === "nation";
+        $("orderDeliveryLine").innerHTML = "<b>Delivery:</b> " + (isNation ? "Nationwide " + fmtPrice(s.deliveryNation) + " · " + esc(s.deliveryNationTime) : "Abbottabad city " + fmtPrice(s.deliveryLocal) + " · " + esc(s.deliveryLocalTime)) + " &nbsp;|&nbsp; Abbottabad city " + fmtPrice(s.deliveryLocal) + " · " + esc(s.deliveryLocalTime) + " · Nationwide " + fmtPrice(s.deliveryNation) + " · " + esc(s.deliveryNationTime);
+        var pay = $("ofPayment").value, extra = "";
+        if (pay === "JazzCash" && s.jazzcash) extra = " — JazzCash: " + esc(s.jazzcash);
+        if (pay === "Easypaisa" && s.easypaisa) extra = " — Easypaisa: " + esc(s.easypaisa);
+        $("orderPaymentLine").innerHTML = "<b>Payment:</b> Cash on Delivery · JazzCash · Easypaisa — selected: <b>" + esc(pay) + "</b>" + extra;
+        var qtyEl = $("ofQty");
+        if (orderCtx.source === "single" && orderCtx.items.length === 1) {
+          orderCtx.items[0].qty = Math.max(1, parseInt(qtyEl.value, 10) || 1);
+          renderOrderSummary();
+        }
+        $("orderGrandTotal").textContent = fmtPrice(orderItemsTotal() + deliveryCharge());
+      }
+      function renderOrderSummary() {
+        $("orderItemsSummary").innerHTML = orderCtx.items.map(function (l) {
+          return "<div style=\"display:flex;justify-content:space-between;gap:.6rem\"><span>" + esc(l.name) + (l.variant ? " <span style=\"color:#7c7468\">(" + esc(l.variant) + ")</span>" : "") + (l.preorder ? ' <b style="color:#7c3aed">PRE-ORDER</b>' : "") + " × " + l.qty + "</span><b>" + fmtPrice(l.price * l.qty) + "</b></div>";
+        }).join("");
+      }
+      function openOrderForm(items, source) {
+        orderCtx = { items: JSON.parse(JSON.stringify(items)), source: source || "single" };
+        $("orderFormWrap").hidden = false; $("orderSuccess").hidden = true;
+        $("ofQty").value = orderCtx.items.length === 1 ? orderCtx.items[0].qty : 1;
+        $("ofQty").disabled = !(orderCtx.source === "single" && orderCtx.items.length === 1);
+        if (orderCtx.items.length === 1) $("ofVariant").value = orderCtx.items[0].variant || "";
+        renderOrderSummary(); refreshOrderTotals();
+        $("orderOverlay").hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+      function closeOrderForm() { $("orderOverlay").hidden = true; if ($("qvOverlay").hidden && $("lookOverlay").hidden && $("adminView").hidden) document.body.style.overflow = ""; }
+      if ($("orderClose")) $("orderClose").addEventListener("click", closeOrderForm);
+      if ($("orderOverlay")) $("orderOverlay").addEventListener("click", function (ev) { if (ev.target === this) closeOrderForm(); });
+      if ($("ofDelivery")) $("ofDelivery").addEventListener("change", refreshOrderTotals);
+      if ($("ofPayment")) $("ofPayment").addEventListener("change", refreshOrderTotals);
+      if ($("ofQty")) $("ofQty").addEventListener("input", refreshOrderTotals);
+      if ($("ofVariant")) $("ofVariant").addEventListener("input", function () { if (orderCtx.items.length === 1) { orderCtx.items[0].variant = this.value; renderOrderSummary(); } });
+      if ($("orderForm")) $("orderForm").addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var name = $("ofName").value.trim(), phone = $("ofPhone").value.trim(), addr = $("ofAddress").value.trim();
+        if (!name || !phone || !addr) return;
+        var num = state.nextOrderNum || 1001; state.nextOrderNum = num + 1;
+        var itemsTotal = orderItemsTotal(), del = deliveryCharge(), grand = itemsTotal + del;
+        var isPre = orderCtx.items.some(function (l) { return l.preorder; });
+        var itemSummary = orderCtx.items.map(function (l) { return l.name + (l.variant ? " (" + l.variant + ")" : "") + " × " + l.qty; }).join("; ");
+        var order = {
+          id: String(num), num: num, date: new Date().toISOString(),
+          customer: name, phone: phone, address: addr,
+          items: JSON.parse(JSON.stringify(orderCtx.items)),
+          item: itemSummary,
+          variant: orderCtx.items.length === 1 ? (orderCtx.items[0].variant || "") : orderCtx.items.length + " items",
+          qty: orderCtx.items.reduce(function (s, l) { return s + l.qty; }, 0),
+          itemsTotal: itemsTotal, delivery: del, total: grand,
+          payment: $("ofPayment").value, note: $("ofNote").value.trim(),
+          preorder: isPre, status: "New"
+        };
+        state.orders.unshift(order);
+        if (orderCtx.source === "cart") state.cart = [];
+        saveState(); renderCart(); renderAdminOrders();
+        var lines = orderCtx.items.map(function (l) { return "- " + l.name + (l.variant ? " (" + l.variant + ")" : "") + " x" + l.qty + " — " + fmtPrice(l.price * l.qty) + (l.preorder ? " [PRE-ORDER]" : ""); });
+        var msg = "Assalam-o-Alaikum! New order #" + num + (isPre ? " (PRE-ORDER)" : "") + " at " + state.settings.shopName + ":\n" + lines.join("\n") +
+          "\nItems total: " + fmtPrice(itemsTotal) + "\nDelivery: " + fmtPrice(del) + "\nGrand total: " + fmtPrice(grand) +
+          "\nName: " + name + "\nMobile: " + phone + "\nAddress: " + addr + "\nPayment: " + order.payment + (order.note ? "\nNote: " + order.note : "");
+        $("successText").innerHTML = "Thank you, " + esc(name) + "! Your Order ID is <b>#" + num + "</b> — total <b>" + fmtPrice(grand) + "</b>. Use Track Order on this page to follow it.";
+        $("successPre").textContent = isPre ? "This order includes a PRE-ORDER item." : "";
+        $("successWaBtn").setAttribute("href", waLink(msg));
+        $("orderFormWrap").hidden = true; $("orderSuccess").hidden = false;
+      });
+      if ($("successDoneBtn")) $("successDoneBtn").addEventListener("click", closeOrderForm);
+      /* ---- admin orders ---- */
+      var ORDER_STATUSES = ["New", "Confirmed", "Dispatched", "Delivered", "Cancelled"];
+      function renderAdminOrders() {
+        var list = $("adminOrderList"); if (!list) return;
+        var newCount = state.orders.filter(function (o) { return o.status === "New"; }).length;
+        var badge = $("ordersNewBadge"); if (badge) { badge.hidden = newCount === 0; badge.textContent = newCount + " New"; }
+        $("orderCount").textContent = "— " + state.orders.length + " order(s)";
+        if (!state.orders.length) { list.innerHTML = '<p class="admin-note">No orders yet. Orders placed on this storefront (in this browser) will appear here.</p>'; return; }
+        list.innerHTML = state.orders.map(function (o) {
+          var d = new Date(o.date);
+          var dateTxt = isNaN(d.getTime()) ? o.date : d.toLocaleString();
+          var itemsHtml = (o.items || []).map(function (l) { return esc(l.name) + (l.variant ? " (" + esc(l.variant) + ")" : "") + " × " + l.qty; }).join("<br>");
+          return '<div class="admin-row" style="align-items:flex-start"><div class="grow"><div class="nm">#' + esc(o.id) + " — " + esc(o.customer) + (o.preorder ? ' <span class="status-pill" style="background:#ede9fe;color:#7c3aed">PRE-ORDER</span>' : "") + '</div>' +
+            '<div class="order-row-meta">' + esc(dateTxt) + " · " + esc(o.phone) + " · " + esc(o.address || "") + "<br>" + (itemsHtml || esc(o.item || "")) + "<br>Qty: " + o.qty + " · <b>" + fmtPrice(o.total) + "</b> · " + esc(o.payment || "Cash on Delivery") + (o.note ? " · Note: " + esc(o.note) : "") + "</div></div>" +
+            '<div class="acts"><select data-ostatus="' + esc(o.id) + '" aria-label="Order status" style="font:inherit;padding:.45rem;border:1.5px solid var(--line);border-radius:8px">' +
+            ORDER_STATUSES.map(function (s) { return '<option value="' + s + '"' + (o.status === s ? " selected" : "") + ">" + s + "</option>"; }).join("") + "</select>" +
+            '<button class="mini-btn del" type="button" data-odel="' + esc(o.id) + '">Delete</button></div></div>';
+        }).join("");
+      }
+      if ($("adminOrderList")) {
+        $("adminOrderList").addEventListener("change", function (ev) {
+          var sel = ev.target.closest("[data-ostatus]"); if (!sel) return;
+          state.orders.forEach(function (o) { if (o.id === sel.getAttribute("data-ostatus")) o.status = sel.value; });
+          saveState(); renderAdminOrders();
+        });
+        $("adminOrderList").addEventListener("click", function (ev) {
+          var btn = ev.target.closest("[data-odel]"); if (!btn) return;
+          if (btn.getAttribute("data-armed") === "1") {
+            state.orders = state.orders.filter(function (o) { return o.id !== btn.getAttribute("data-odel"); });
+            saveState(); renderAdminOrders();
+          } else {
+            btn.setAttribute("data-armed", "1"); btn.classList.add("armed"); btn.textContent = "Confirm delete?";
+            setTimeout(function () { btn.removeAttribute("data-armed"); btn.classList.remove("armed"); btn.textContent = "Delete"; }, 2600);
+          }
+        });
+      }
+      /* ---- admin reviews ---- */
+      var editingReviewId = null;
+      function renderAdminReviews() {
+        var list = $("adminReviewList"); if (!list) return;
+        list.innerHTML = state.reviews.map(function (r) {
+          return '<div class="admin-row"><div class="grow"><div class="nm" style="font-size:1rem">' + esc(r.name) + ' <span style="color:var(--gold)">' + "★".repeat(Math.max(1, Math.min(5, Number(r.stars) || 5))) + '</span></div><div class="meta">' + esc(r.text) + '</div></div>' +
+            '<div class="acts"><button class="mini-btn edit" type="button" data-redit="' + esc(r.id) + '">Edit</button><button class="mini-btn del" type="button" data-rdel="' + esc(r.id) + '">Delete</button></div></div>';
+        }).join("") || '<p class="admin-note">No reviews yet.</p>';
+      }
+      if ($("reviewForm")) $("reviewForm").addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var data = { name: $("rfName").value.trim(), stars: Math.max(1, Math.min(5, parseInt($("rfStars").value, 10) || 5)), text: $("rfText").value.trim() };
+        if (!data.name || !data.text) return;
+        if (editingReviewId) state.reviews.forEach(function (r) { if (r.id === editingReviewId) { r.name = data.name; r.stars = data.stars; r.text = data.text; } });
+        else state.reviews.push({ id: "r" + Date.now(), name: data.name, stars: data.stars, text: data.text });
+        editingReviewId = null; $("reviewForm").reset(); $("rfStars").value = 5; $("reviewSubmitBtn").textContent = "Add Review"; $("reviewCancelEdit").hidden = true;
+        saveState(); renderReviews(); renderAdminReviews();
+      });
+      if ($("reviewCancelEdit")) $("reviewCancelEdit").addEventListener("click", function () { editingReviewId = null; $("reviewForm").reset(); $("reviewSubmitBtn").textContent = "Add Review"; this.hidden = true; });
+      if ($("adminReviewList")) $("adminReviewList").addEventListener("click", function (ev) {
+        var eb = ev.target.closest("[data-redit]"), db = ev.target.closest("[data-rdel]");
+        if (eb) { var r = null; state.reviews.forEach(function (x) { if (x.id === eb.getAttribute("data-redit")) r = x; }); if (!r) return; editingReviewId = r.id; $("rfName").value = r.name; $("rfStars").value = r.stars; $("rfText").value = r.text; $("reviewSubmitBtn").textContent = "Save Review"; $("reviewCancelEdit").hidden = false; }
+        if (db) {
+          if (db.getAttribute("data-armed") === "1") { state.reviews = state.reviews.filter(function (x) { return x.id !== db.getAttribute("data-rdel"); }); saveState(); renderReviews(); renderAdminReviews(); }
+          else { db.setAttribute("data-armed", "1"); db.classList.add("armed"); db.textContent = "Confirm delete?"; setTimeout(function () { db.removeAttribute("data-armed"); db.classList.remove("armed"); db.textContent = "Delete"; }, 2600); }
+        }
+      });
+      /* ---- tracking ---- */
+      if ($("trackForm")) $("trackForm").addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var q = $("trackInput").value.trim().replace(/^#/, "");
+        var box = $("trackResult");
+        var found = null;
+        state.orders.forEach(function (o) { if (o.id === q || o.phone.replace(/\D/g, "") === q.replace(/\D/g, "") && q.replace(/\D/g, "").length >= 7) { if (!found) found = o; } });
+        if (!found) { box.innerHTML = '<p style="color:#b3261e;font-weight:600">No order found for “' + esc(q) + '” in this browser. Please check the Order ID from your order confirmation.</p>'; return; }
+        var steps = ["Received", "Confirmed", "Dispatched", "Delivered"];
+        var idx = found.status === "New" ? 0 : found.status === "Confirmed" ? 1 : found.status === "Dispatched" ? 2 : found.status === "Delivered" ? 3 : -1;
+        var html = "<b>Order #" + esc(found.id) + "</b> — " + esc(found.item || "") + "<br>Total: <b>" + fmtPrice(found.total) + "</b>" + (found.preorder ? ' · <b style="color:#7c3aed">PRE-ORDER</b>' : "");
+        if (found.status === "Cancelled") html += '<div class="track-steps"><div class="track-step cancelled" style="flex:1"><div class="dot">✕</div>Cancelled</div></div>';
+        else html += '<div class="track-steps">' + steps.map(function (s, i) { return '<div class="track-step' + (i <= idx ? " done" : "") + '"><div class="dot">' + (i <= idx ? "✓" : i + 1) + "</div>" + s + "</div>"; }).join("") + "</div>";
+        box.innerHTML = html;
+      });
+      /* ---- size guide ---- */
+      function openSizeGuide() { $("sizeOverlay").hidden = false; }
+      function closeSizeGuide() { $("sizeOverlay").hidden = true; }
+      ["sizeGuideBtn1", "sizeGuideBtn2"].forEach(function (id) { var b = $(id); if (b) b.addEventListener("click", openSizeGuide); });
+      if ($("sizeClose")) $("sizeClose").addEventListener("click", closeSizeGuide);
+      if ($("sizeOverlay")) $("sizeOverlay").addEventListener("click", function (ev) { if (ev.target === this) closeSizeGuide(); });
+      /* orbit + try-on order buttons now open the order form instead of a bare WhatsApp link */
+      if ($("orbitWaBtn")) $("orbitWaBtn").addEventListener("click", function (ev) {
+        ev.preventDefault();
+        var front = null; orbitProducts().forEach(function (p) { if (p.id === orbitState.frontId) front = p; });
+        if (!front || front.soldOut) return;
+        openOrderForm([{ productId: front.id, name: front.name, variant: orbitState.size, price: Number(front.price) || 0, qty: 1, preorder: !!front.preorder }], "single");
+      });
+      renderCart();
+
       /* ================= virtual try-on studio ================= */
       var TRY_TABS = ["Shalwar Kameez", "Kurta", "Waistcoat", "Shoes"];
       var COLOR_HEX = {
@@ -2192,7 +2718,37 @@
         "tan": "#c69a63", "lavender": "#b3a4d8", "pink": "#e3a3bd", "mint": "#a9d6ba", "sky blue": "#8fc3e8",
         "indigo": "#2c3e70", "red": "#a92e2e", "green": "#3f6b4f", "mustard": "#d9a441", "blue": "#3a6bc5"
       };
-      var tryState = { tab: "Shalwar Kameez", worn: {}, shade: {} };
+      var tryState = { tab: "Shalwar Kameez", worn: {}, shade: {}, modelId: null };
+      /* ---- try-on layering kinds (Part 6 fix) ----
+         FULL = one-piece full outfit (Shalwar Kameez) · TOP = Kurta · EXTRA = Waistcoat / Shoes.
+         This catalogue has no separate BOTTOM category. Rules: FULL clears TOP; TOP clears FULL;
+         EXTRA layers over anything. The worn label + total are computed from this same set. */
+      function tryKind(tcat) {
+        if (tcat === "Shalwar Kameez") return "FULL";
+        if (tcat === "Kurta") return "TOP";
+        return "EXTRA";
+      }
+      function setWornItem(tcat, id) {
+        var kind = tryKind(tcat);
+        if (kind === "FULL") { delete tryState.worn["Kurta"]; }
+        if (kind === "TOP") { delete tryState.worn["Shalwar Kameez"]; }
+        tryState.worn[tcat] = id;
+        tryState.modelId = id;
+      }
+      function findTryItem(id) {
+        var found = null;
+        TRY_TABS.forEach(function (tc) { tryItems(tc).forEach(function (it) { if (it.id === id) found = it; }); });
+        return found;
+      }
+      function allWornItems() {
+        var out = [];
+        TRY_TABS.forEach(function (tc) {
+          var wid = tryState.worn[tc];
+          if (!wid) return;
+          tryItems(tc).forEach(function (it) { if (it.id === wid) out.push({ tcat: tc, kind: tryKind(tc), item: it }); });
+        });
+        return out;
+      }
       var trySetWidth = 0;
       var TRY_ACCENTS = { "Shalwar Kameez": "#71182b", "Kurta": "#1e40af", "Waistcoat": "#6d28d9", "Shoes": "#8a5a13" };
       var TRY_WORDS = { "Shalwar Kameez": "STYLE", "Kurta": "KURTA", "Waistcoat": "GRACE", "Shoes": "STEP" };
@@ -2221,7 +2777,7 @@
         if (!items.length) return null;
         var wid = tryState.worn[tcat];
         for (var i = 0; i < items.length; i++) if (items[i].id === wid) return items[i];
-        tryState.worn[tcat] = items[0].id;
+        setWornItem(tcat, items[0].id); /* default selection also obeys the layering rules */
         return items[0];
       }
       var trySvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L4 6l2 4 2-1v12h8V9l2 1 2-4-5-3a3 3 0 0 1-6 0z"/></svg>';
@@ -2262,7 +2818,8 @@
         return null;
       }
       function updateTryModel(animate) {
-        var worn = wornItem(tryState.tab);
+        /* the photo on the model is the most recently selected piece — the label below lists exactly the worn set */
+        var worn = (tryState.modelId && findTryItem(tryState.modelId)) || wornItem(tryState.tab);
         var img = $("tryModelImg");
         if (!worn || !img) return;
         var src = shadeVariantSrc(worn) || worn.modelImg || worn.img;
@@ -2287,8 +2844,11 @@
           $("trySwatches").innerHTML = "";
           return;
         }
-        $("tryWornName").textContent = worn.name;
-        $("tryWornMeta").textContent = tryState.tab + " · " + fmtPrice(worn.price);
+        /* label + total come from the SAME worn set the layering rules maintain — no phantom pieces */
+        var wornSet = allWornItems();
+        var total = wornSet.reduce(function (s, w) { return s + (Number(w.item.price) || 0); }, 0);
+        $("tryWornName").textContent = wornSet.map(function (w) { return w.item.name; }).join(" + ");
+        $("tryWornMeta").textContent = "On the model now · Look total " + fmtPrice(total);
         var cur = tryState.shade[tryState.tab] || "";
         /* a stored shade is only valid if this item has a REAL photo in that colour */
         if (cur && !(worn.variants && worn.variants[cur])) { cur = ""; tryState.shade[tryState.tab] = ""; }
@@ -2302,9 +2862,18 @@
           }
         });
         $("trySwatches").innerHTML = html;
-        var msg = "Assalam-o-Alaikum! I tried this look in your Virtual Fitting Room: " + worn.name + " (" + tryState.tab + ", " + fmtPrice(worn.price) + ")" + (cur ? ", shade: " + cur : "") + " at " + state.settings.shopName + ". Is it available?";
+        var msg = "Assalam-o-Alaikum! I tried this look in your Virtual Fitting Room: " + wornSet.map(function (w) { return w.item.name; }).join(" + ") + " — look total " + fmtPrice(total) + " at " + state.settings.shopName + ". Is it available?";
         $("tryOrderBtn").setAttribute("href", waLink(msg));
       }
+      if ($("tryOrderBtn")) $("tryOrderBtn").addEventListener("click", function (ev) {
+        ev.preventDefault();
+        var set = allWornItems();
+        if (!set.length) return;
+        var items = set.map(function (w) {
+          return { productId: w.item.id, name: w.item.name, variant: w.tcat, price: Number(w.item.price) || 0, qty: 1, preorder: false };
+        });
+        openOrderForm(items, "look");
+      });
       function depthScale() {
         var track = $("tryonTrack"), stage = $("tryonStage");
         if (!track || !stage || reduceMotion) return;
@@ -2399,7 +2968,7 @@
         $("tryonTrack").addEventListener("click", function (ev) {
           var card = ev.target.closest(".try-card");
           if (!card) return;
-          tryState.worn[tryState.tab] = card.getAttribute("data-tryid");
+          setWornItem(tryState.tab, card.getAttribute("data-tryid")); /* layering rules applied here */
           tryState.shade[tryState.tab] = "";
           renderTryonCardsOnly();
           updateTryBar();
@@ -2482,9 +3051,18 @@
       }
       function updateQvWa() {
         if (!qv.p) return;
-        var msg = "Assalam-o-Alaikum! I want to order: " + qv.p.name + " (" + fmtPrice(qv.p.price) + " " + (qv.p.unit || "") + ") at " + state.settings.shopName +
-          ". Size/Length: " + qv.size + (qv.color ? ". Colour: " + qv.color : "") + (qv.view === "back" ? ". (I viewed the back/worn view)" : "") + ". Is it available?";
-        $("qvWaBtn").setAttribute("href", waLink(msg));
+        var p = qv.p;
+        $("qvBadges").innerHTML =
+          (p.preorder ? '<p style="margin:.7rem 0 0"><span class="badge-pre" style="position:static">Pre-Order' + (p.preorderNote ? " · " + esc(p.preorderNote) : "") + "</span></p>" : "") +
+          (p.soldOut ? '<p style="margin:.7rem 0 0"><span class="badge-out" style="position:static">Sold Out</span></p>' : "");
+        $("qvOrderBtn").disabled = !!p.soldOut;
+        $("qvOrderBtn").style.opacity = p.soldOut ? ".45" : "1";
+        $("qvCartBtn").disabled = !!p.soldOut;
+        $("qvCartBtn").style.opacity = p.soldOut ? ".45" : "1";
+        var rel = state.products.filter(function (x) { return x.cat === p.cat && x.id !== p.id; }).slice(0, 3);
+        $("qvRelated").innerHTML = rel.map(function (x) {
+          return '<button type="button" class="related-card" data-rel="' + esc(x.id) + '"><img src="' + esc(x.img) + '" alt="" /><span>' + esc(x.name) + "<br>" + esc(fmtPrice(x.price)) + '</span></button>';
+        }).join("") || '<span style="color:#8a8175;font-size:.88rem">No other items in this category yet.</span>';
       }
       $("qvSizes").addEventListener("click", function (ev) {
         var b = ev.target.closest("[data-qsize]"); if (!b) return;
@@ -2509,6 +3087,26 @@
       $("qvViewBack").addEventListener("click", function () { setQvView("back"); });
       $("qvClose").addEventListener("click", closeQuickView);
       $("qvDoneBtn").addEventListener("click", closeQuickView);
+      $("qvOrderBtn").addEventListener("click", function () {
+        if (!qv.p || qv.p.soldOut) return;
+        var p = qv.p;
+        var variant = qv.size + (qv.color ? " · " + qv.color : "");
+        closeQuickView();
+        openOrderForm([{ productId: p.id, name: p.name, variant: variant, price: Number(p.price) || 0, qty: 1, preorder: !!p.preorder }], "single");
+      });
+      $("qvCartBtn").addEventListener("click", function () {
+        if (!qv.p || qv.p.soldOut) return;
+        var variant = qv.size + (qv.color ? " · " + qv.color : "");
+        /* colour rule: only that colour's REAL variant photo is ever used for the cart line */
+        addToCart(qv.p.id, variant, 1);
+        closeQuickView();
+        openCart();
+      });
+      $("qvRelated").addEventListener("click", function (ev) {
+        var b = ev.target.closest("[data-rel]"); if (!b) return;
+        var p = null; state.products.forEach(function (x) { if (x.id === b.getAttribute("data-rel")) p = x; });
+        if (p) openQuickView(p);
+      });
       $("qvOverlay").addEventListener("click", function (ev) { if (ev.target === this) closeQuickView(); });
 
       /* ---------- 1) drag-to-orbit wheel ---------- */
@@ -2686,8 +3284,8 @@
         });
       })();
 
-      /* ---------- 2) curved hover rail ---------- */
-      var railState = { active: 0 };
+      /* ---------- 2) curved rail — auto-drift + drag + tap (fixed) ---------- */
+      var railState = { active: 0, offset: 0, holdUntil: 0, visible: true, dragging: false, downX: 0, downY: 0, startOffset: 0, moved: 0, lastTapIdx: -1, lastTapAt: 0 };
       var RAIL_CATS = ["Gents Fabric", "Ladies Fabric", "Bridal / Formal", "Suiting & More", "Winter Collection"];
       function railProducts() {
         var f = state.products.filter(function (p) { return RAIL_CATS.indexOf(p.cat) > -1; });
@@ -2704,27 +3302,41 @@
             '<span class="ri-card"><img src="' + esc(p.img) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" />' +
             '<span class="ri-name">' + esc(p.name) + "</span></span></button>";
         }).join("");
+        refreshRailCache();
         layoutRail();
         updateRailCaption();
       }
       function railPoint(t, W) {
         var ctrlY = W < 560 ? 150 : 196, endY = 26;
-        var y = Math.pow(1 - t, 2) * endY + 2 * (1 - t) * t * ctrlY + Math.pow(t, 2) * endY; /* quadratic bezier — same curve as the SVG rail */
+        var y = Math.pow(1 - t, 2) * endY + 2 * (1 - t) * t * ctrlY + Math.pow(t, 2) * endY;
         return { x: W * t, y: y };
+      }
+      var railCache = { W: 0, cw: 138 };
+      function railCardW() { return railCache.cw; }
+      function refreshRailCache() {
+        var stage = $("railStage"); if (!stage) return;
+        railCache.W = stage.clientWidth;
+        railCache.cw = window.innerWidth <= 560 ? 96 : 138;
       }
       function layoutRail() {
         var stage = $("railStage"), wrap = $("railItems");
         if (!stage || !wrap) return;
-        var items = railProducts(), W = stage.clientWidth;
-        if (!W) return;
-        stage.classList.toggle("has-active", items.length > 0);
+        var items = railProducts(), W = railCache.W || stage.clientWidth;
+        if (!W || !items.length) return;
+        stage.classList.add("has-active");
+        /* inset the travel range by half a card + margin so NO card is ever clipped, even mid-drift */
+        var half = railCardW() / 2 + 6;
+        var tMin = half / W, tMax = 1 - half / W;
+        var n = items.length;
         wrap.querySelectorAll(".rail-item").forEach(function (el, i) {
-          var t = items.length === 1 ? 0.5 : 0.07 + 0.86 * (i / (items.length - 1));
+          var frac = n === 1 ? 0.5 : ((i / n) + railState.offset) % 1;
+          var t = tMin + frac * (tMax - tMin);
           var pt = railPoint(t, W);
           var isSpot = i === railState.active;
           el.style.left = pt.x.toFixed(1) + "px";
           el.style.top = pt.y.toFixed(1) + "px";
-          el.style.transform = "translate(-50%,0) scale(" + (isSpot ? 1.22 : 1) + ")";
+          el.style.transform = "translate(-50%,0) scale(" + (isSpot ? 1.18 : 1) + ")";
+          el.style.transition = railState.dragging ? "none" : "transform .35s cubic-bezier(.22,.9,.3,1), opacity .35s ease, filter .35s ease";
           el.classList.toggle("is-spot", isSpot);
         });
       }
@@ -2741,25 +3353,73 @@
         $("railDesc").textContent = p.desc || "";
       }
       function setRailActive(i) {
+        railState.holdUntil = Date.now() + 3500;
         if (i === railState.active) { layoutRail(); return; }
         railState.active = i; layoutRail(); updateRailCaption();
       }
-      if ($("railItems")) {
-        $("railItems").addEventListener("mouseover", function (ev) {
+      /* gentle continuous drift — wraps around; paused on interaction + reduced-motion off */
+      (function railDrift() {
+        if (reduceMotion) return;
+        var stage = $("railStage");
+        if ("IntersectionObserver" in window && stage) new IntersectionObserver(function (es) { es.forEach(function (e) { railState.visible = e.isIntersecting; }); }, { threshold: 0.04 }).observe(stage);
+        var last = null;
+        function step(ts) {
+          if (last == null) last = ts;
+          var dt = Math.min(ts - last, 64); last = ts;
+          if (railState.visible && !document.hidden && !railState.dragging && Date.now() > railState.holdUntil) {
+            railState.offset = (railState.offset + dt * 0.00002) % 1; /* full cycle ≈ 50 seconds — slow, elegant, clearly visible */
+            layoutRail();
+          }
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })();
+      (function railPointer() {
+        var stage = $("railStage"); if (!stage) return;
+        stage.addEventListener("pointerdown", function (ev) {
+          railState.dragging = false; railState.moved = 0;
+          railState.downX = ev.clientX; railState.downY = ev.clientY; railState.startOffset = railState.offset;
+          railState.holdUntil = Date.now() + 4000;
+        }, { passive: true });
+        stage.addEventListener("pointermove", function (ev) {
+          if (ev.buttons === 0 && ev.pointerType === "mouse") return;
+          if (railState.downX === 0 && railState.moved === 0 && !railState.dragging) return;
+          var dx = ev.clientX - railState.downX, dy = ev.clientY - railState.downY;
+          /* only claim clearly horizontal drags — vertical movement stays page scroll */
+          if (!railState.dragging && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.4) railState.dragging = true;
+          if (railState.dragging) {
+            railState.moved = Math.abs(dx);
+            var W = stage.clientWidth || 1;
+            railState.offset = ((railState.startOffset + dx / W) % 1 + 1) % 1;
+            railState.holdUntil = Date.now() + 4000;
+            layoutRail();
+          }
+        }, { passive: true });
+        function endP() { if (railState.dragging) { railState.holdUntil = Date.now() + 3500; setTimeout(function () { railState.dragging = false; }, 60); } railState.downX = 0; }
+        stage.addEventListener("pointerup", endP, { passive: true });
+        stage.addEventListener("pointercancel", endP, { passive: true });
+        var wrap = $("railItems");
+        wrap.addEventListener("mouseover", function (ev) {
+          var b = ev.target.closest("[data-ridx]"); if (!b) return;
+          if (window.matchMedia && window.matchMedia("(hover: hover)").matches) setRailActive(parseInt(b.getAttribute("data-ridx"), 10) || 0);
+        });
+        wrap.addEventListener("focusin", function (ev) {
           var b = ev.target.closest("[data-ridx]"); if (!b) return;
           setRailActive(parseInt(b.getAttribute("data-ridx"), 10) || 0);
         });
-        $("railItems").addEventListener("focusin", function (ev) {
+        wrap.addEventListener("click", function (ev) {
           var b = ev.target.closest("[data-ridx]"); if (!b) return;
-          setRailActive(parseInt(b.getAttribute("data-ridx"), 10) || 0);
-        });
-        $("railItems").addEventListener("click", function (ev) {
-          var b = ev.target.closest("[data-ridx]"); if (!b) return;
+          if (railState.moved > 10) { railState.moved = 0; return; } /* it was a drag, not a tap */
           var i = parseInt(b.getAttribute("data-ridx"), 10) || 0;
-          setRailActive(i);
-          openQuickView(railProducts()[i]);
+          var now = Date.now();
+          if (railState.lastTapIdx === i && now - railState.lastTapAt < 6000 && railState.active === i) {
+            openQuickView(railProducts()[i]); /* second tap on the focused card */
+          } else {
+            setRailActive(i); /* first tap: spotlight + caption */
+          }
+          railState.lastTapIdx = i; railState.lastTapAt = now;
         });
-      }
+      })();
       $("railQuickBtn").addEventListener("click", function () { openQuickView(railProducts()[railState.active]); });
 
       /* ---------- 3) shuffle grid — try the look ---------- */
@@ -2786,45 +3446,81 @@
         }
         return looks;
       }
-      function renderLooks() {
+      var selectedLook = -1;
+      function renderLooks(keepNodes) {
         var row = $("looksRow");
         if (!row) return;
         var looks = buildLooks();
         if (!looks.length) { row.innerHTML = '<p class="looks-note">No looks yet — the shop owner can add products from the Admin Panel.</p>'; return; }
         if (!lookOrder || lookOrder.length !== looks.length) lookOrder = looks.map(function (_, i) { return i; });
         var centre = (lookOrder.length - 1) / 2;
-        row.innerHTML = "";
+        var existing = {};
+        if (keepNodes) row.querySelectorAll(".look-card").forEach(function (el) { existing[el.getAttribute("data-look")] = el; });
+        if (!keepNodes) row.innerHTML = "";
         lookOrder.forEach(function (li, pos) {
           var look = looks[li];
           var dist = Math.abs(pos - centre);
-          var btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "look-card" + (dist < 0.6 ? " is-centre" : "");
-          btn.setAttribute("data-look", li);
+          var btn = existing[li];
+          if (!btn) {
+            btn = document.createElement("button");
+            btn.type = "button";
+            btn.setAttribute("data-look", li);
+            btn.innerHTML = '<span class="lk-card"><img src="' + esc(look.main.modelImg || look.main.img) + '" alt="' + esc(look.title + " — styled around " + look.main.name) + '" loading="lazy" />' +
+              '<span class="lk-body"><span class="lk-name">' + esc(look.title) + '</span>' +
+              '<span class="lk-meta">' + look.pieces.length + " pieces · " + esc(fmtPrice(look.total)) + "</span></span></span>";
+          }
+          btn.className = "look-card" + (dist < 0.6 ? " is-centre" : "") + (selectedLook === li ? " is-selected" : "");
           btn.setAttribute("aria-label", "Open look: " + look.title);
-          btn.style.transform = "scale(" + (1.1 - dist * 0.1).toFixed(3) + ")";
-          btn.style.opacity = (1 - dist * 0.17).toFixed(2);
+          btn.style.transform = "scale(" + ((selectedLook === li ? 1.12 : 1.06) - dist * 0.07).toFixed(3) + ")";
+          btn.style.opacity = selectedLook === li ? "1" : (1 - dist * 0.13).toFixed(2);
           btn.style.zIndex = String(10 - Math.round(dist));
-          btn.innerHTML = '<span class="lk-card"><img src="' + esc(look.main.modelImg || look.main.img) + '" alt="' + esc(look.title + " — styled around " + look.main.name) + '" loading="lazy" />' +
-            '<span class="lk-body"><span class="lk-name">' + esc(look.title) + '</span>' +
-            '<span class="lk-meta">' + look.pieces.length + " pieces · " + esc(fmtPrice(look.total)) + "</span></span></span>";
           row.appendChild(btn);
         });
       }
       if ($("shuffleBtn")) {
         $("shuffleBtn").addEventListener("click", function () {
           if (!lookOrder || lookOrder.length < 2) return;
-          for (var i = lookOrder.length - 1; i > 0; i--) { /* Fisher–Yates — instant re-sort */
-            var j = Math.floor(Math.random() * (i + 1));
-            var tmp = lookOrder[i]; lookOrder[i] = lookOrder[j]; lookOrder[j] = tmp;
-          }
-          renderLooks();
+          var row = $("looksRow");
+          /* FLIP: record positions, re-sort, invert, then glide to the new spots */
+          var cards = Array.prototype.slice.call(row.querySelectorAll(".look-card"));
+          var first = {};
+          cards.forEach(function (el) { first[el.getAttribute("data-look")] = el.getBoundingClientRect().left; });
+          var guard = 0;
+          do {
+            for (var i = lookOrder.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var tmp = lookOrder[i]; lookOrder[i] = lookOrder[j]; lookOrder[j] = tmp;
+            }
+            guard++;
+          } while (guard < 8 && cards.length && String(lookOrder[0]) === cards[0].getAttribute("data-look"));
+          renderLooks(true);
+          var moved = Array.prototype.slice.call(row.querySelectorAll(".look-card"));
+          moved.forEach(function (el) {
+            var dx = (first[el.getAttribute("data-look")] || 0) - el.getBoundingClientRect().left;
+            if (dx && !reduceMotion) {
+              el.classList.add("will-flip");
+              el.style.transform += " translateX(" + dx + "px)";
+              requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                  el.classList.remove("will-flip");
+                  el.style.transform = el.style.transform.replace(/ translateX\([-0-9.]+px\)/, "");
+                });
+              });
+            }
+          });
+          var scroller = $("looksScroll");
+          if (scroller) scroller.scrollTo({ left: 0, behavior: reduceMotion ? "auto" : "smooth" });
         });
       }
       if ($("looksRow")) {
         $("looksRow").addEventListener("click", function (ev) {
           var b = ev.target.closest("[data-look]"); if (!b) return;
-          openLook(parseInt(b.getAttribute("data-look"), 10) || 0);
+          var li = parseInt(b.getAttribute("data-look"), 10) || 0;
+          selectedLook = li;
+          renderLooks(true); /* visibly highlight + bring forward in the row itself */
+          b = $("looksRow").querySelector('[data-look="' + li + '"]');
+          if (b && b.scrollIntoView) b.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", inline: "center", block: "nearest" });
+          openLook(li);
         });
       }
       function openLook(li) {
@@ -2860,12 +3556,24 @@
             '<span class="lp-qty">× ' + q + "</span>" +
             '<button type="button" class="lp-add" data-lpadd="' + esc(p.id) + '" aria-label="Add one more ' + esc(p.name) + '">+</button></div>';
         }).join("");
-        var total = lookTotalNow();
-        $("lookTotal").textContent = fmtPrice(total);
-        var lines = look.pieces.map(function (p) { return "- " + p.name + " x" + (lookQty[p.id] || 1) + " — " + fmtPrice((Number(p.price) || 0) * (lookQty[p.id] || 1)); });
-        var msg = "Assalam-o-Alaikum! I want to order this FULL LOOK: " + look.title + " (" + fmtPrice(total) + ") at " + state.settings.shopName + ".\nIn this look:\n" + lines.join("\n") + "\nPlease confirm availability.";
-        $("lookOrderBtn").setAttribute("href", waLink(msg));
+        $("lookTotal").textContent = fmtPrice(lookTotalNow());
       }
+      $("lookOrderBtn").addEventListener("click", function () {
+        var looks = buildLooks(), look = looks[currentLook];
+        if (!look) return;
+        /* Order Full Look: every piece goes into the cart, then ONE combined checkout order */
+        look.pieces.forEach(function (p) {
+          var q = lookQty[p.id] || 1;
+          var found = null;
+          state.cart.forEach(function (l) { if (l.productId === p.id && l.variant === "Full Look · " + look.title) found = l; });
+          if (found) found.qty += q;
+          else if (!p.soldOut) state.cart.push({ productId: p.id, name: p.name, img: p.img, variant: "Full Look · " + look.title, price: Number(p.price) || 0, qty: q, preorder: !!p.preorder });
+        });
+        saveState(); renderCart();
+        closeLook();
+        var items = state.cart.map(function (l) { return { productId: l.productId, name: l.name, variant: l.variant, price: l.price, qty: l.qty, preorder: !!l.preorder }; });
+        if (items.length) openOrderForm(items, "cart");
+      });
       $("lookPieces").addEventListener("click", function (ev) {
         var b = ev.target.closest("[data-lpadd]"); if (!b) return;
         var id = b.getAttribute("data-lpadd");
@@ -2892,7 +3600,7 @@
       var mechResizeTimer = null;
       window.addEventListener("resize", function () {
         if (mechResizeTimer) clearTimeout(mechResizeTimer);
-        mechResizeTimer = setTimeout(function () { layoutOrbit(false); layoutRail(); }, 120);
+        mechResizeTimer = setTimeout(function () { layoutOrbit(false); refreshRailCache(); layoutRail(); }, 120);
       }, { passive: true });
       renderMechanicsAll();
 
