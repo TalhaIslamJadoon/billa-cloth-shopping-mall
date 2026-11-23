@@ -1159,7 +1159,23 @@
       footer { background: var(--maroon-950); }
       @media (prefers-reduced-motion: reduce) { .grad-text { animation: none; } }
     </style>
-  </head>
+  <style>
+/* TO-FIX 2026-11-24: mobile try-on repair */
+
+@media (max-width:640px){
+  /* Fitting room stacks on mobile: cards get their own full-width strip under
+     the model instead of sliding half-hidden behind it. */
+  .tryon-stage{display:flex;flex-direction:column;min-height:0;padding:14px 10px 16px}
+  .tryon-tabs{position:static;transform:none;order:1;margin:0 auto;max-width:100%}
+  .tryon-model{position:relative;left:auto;top:auto;transform:none;order:2;height:320px;margin:12px auto 0}
+  .tryon-trackwrap{position:relative;left:auto;right:auto;top:auto;transform:none;order:3;margin-top:14px}
+  .tryon-track{padding:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 52px,#000 calc(100% - 52px),transparent);mask-image:linear-gradient(90deg,transparent,#000 52px,#000 calc(100% - 52px),transparent)}
+  .tryon-bar{position:relative;left:auto;bottom:auto;transform:none;order:4;margin:12px auto 0;width:100%}
+  .tryon-floor{display:none}
+}
+
+</style>
+</head>
   <body>
 
     <div id="progress" aria-hidden="true"></div>
