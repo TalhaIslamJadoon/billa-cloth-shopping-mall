@@ -22,22 +22,22 @@
         --gold-bright: #e6c878;
         --gold-deep: #a37f2e;
         /* Light porcelain premium system */
-        --porcelain: #faf8fc;
-        --porcelain-2: #f2eff8;
+        --porcelain: #f7efe0;
+        --porcelain-2: #efe3cb;
         --surface: #ffffff;
-        --ink: #33182a;
-        --ink-soft: #71606e;
-        --line: #e7ddda;
+        --ink: #33120f;
+        --ink-soft: #7a6552;
+        --line: #ddc9a3;
         /* Electric gradient accents */
-        --blue: #1d6ff2;
-        --cyan: #06b6d4;
-        --violet: #7c3aed;
-        --grad: linear-gradient(92deg, var(--blue), var(--cyan) 38%, var(--violet) 72%, var(--gold) 105%);
-        --grad-soft: linear-gradient(92deg, rgba(29,111,242,.14), rgba(6,182,212,.14) 40%, rgba(124,58,237,.14) 75%, rgba(201,162,75,.16));
+        --blue: #8c2138;
+        --cyan: #c9a24b;
+        --violet: #a37f2e;
+        --grad: linear-gradient(92deg, #57101f, #8c2138 34%, #a37f2e 72%, #c9a24b 105%);
+        --grad-soft: linear-gradient(92deg, rgba(87,16,31,.10), rgba(201,162,75,.14) 45%, rgba(163,127,46,.12) 80%);
         --wa: #1fae55;
         --wa-dark: #128c46;
         --shadow: 0 22px 44px -20px rgba(61, 10, 32, .35);
-        --shadow-grad: 0 18px 38px -16px rgba(90, 60, 220, .35);
+        --shadow-grad: 0 18px 38px -16px rgba(87, 16, 31, .38);
         color-scheme: light;
       }
       * { box-sizing: border-box; }
@@ -53,7 +53,7 @@
       img { max-width: 100%; display: block; }
       a { color: inherit; }
       h1, h2, h3, .serif { font-family: "Playfair Display", Georgia, serif; }
-      ::selection { background: rgba(6,182,212,.28); }
+      ::selection { background: rgba(201,162,75,.45); }
 
       /* ---------- animated gradient helpers ---------- */
       .grad-text {
@@ -1076,6 +1076,88 @@
         .hero-photo img.ph-img { animation: none !important; }
         #progress { display: none; }
       }
+
+      /* ============================================================
+         BILLA HERITAGE IDENTITY — classic kapra-house, maroon + gold
+         Deep maroon drape hero, bazaar-arch photo frames, woven-thread
+         motifs, ivory parchment sections, elegant serif voice.
+         Visual layer only: no state, keys or behaviour are touched.
+         ============================================================ */
+      body {
+        background:
+          repeating-linear-gradient(0deg, rgba(163,127,46,.045) 0 1px, transparent 1px 7px),
+          repeating-linear-gradient(90deg, rgba(163,127,46,.045) 0 1px, transparent 1px 7px),
+          var(--porcelain);
+      }
+      .topbar { background: var(--maroon-950); color: #ecd9a8; letter-spacing: .04em; }
+      .flow-line { background: repeating-linear-gradient(90deg, var(--gold) 0 14px, var(--maroon-700) 14px 28px); height: 3px; }
+      .nav { background: rgba(247,239,224,.96); border-bottom: 3px double var(--gold); box-shadow: 0 10px 24px -18px rgba(61,10,20,.5); }
+      .brand .monogram {
+        background: var(--maroon-800); color: var(--gold-bright);
+        border: 1px solid var(--gold); outline: 3px double rgba(201,162,75,.55); outline-offset: 2px;
+        font-family: "Playfair Display", Georgia, serif; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+      }
+      .brand .name { font-family: "Playfair Display", Georgia, serif; letter-spacing: .01em; color: var(--maroon-900); }
+      .brand .sub { letter-spacing: .34em; text-transform: uppercase; color: var(--gold-deep); }
+      .btn { border-radius: 3px; letter-spacing: .06em; }
+      .btn-grad { background: linear-gradient(160deg, var(--maroon-700), var(--maroon-900)); color: #f3dfae; border: 1px solid var(--gold); box-shadow: inset 0 0 0 3px rgba(201,162,75,.18), var(--shadow-grad); }
+      .btn-gold { background: linear-gradient(160deg, var(--gold-bright), var(--gold-deep)); color: var(--maroon-950); border: 1px solid #8a6d24; }
+      .btn-ghost { border: 1px solid var(--gold-deep); color: var(--maroon-800); background: rgba(255,252,244,.6); }
+      .pill-black { background: var(--maroon-900) !important; color: #f3dfae !important; border: 1px solid var(--gold) !important; border-radius: 3px !important; }
+      .pill-ghost { border: 1px solid var(--gold-deep) !important; color: var(--maroon-800) !important; border-radius: 3px !important; background: rgba(255,252,244,.65) !important; }
+
+      /* Hero — a draped maroon curtain with gold thread, calm and dignified */
+      .hero {
+        background:
+          radial-gradient(120% 90% at 50% -10%, rgba(230,200,120,.20), transparent 55%),
+          repeating-linear-gradient(90deg, rgba(0,0,0,.16) 0 26px, rgba(255,235,190,.05) 26px 52px, rgba(0,0,0,0) 52px 78px),
+          linear-gradient(168deg, #57101f 0%, #3d0a14 58%, #2b060d 100%);
+        color: #f6ecd4; border-bottom: 4px double var(--gold);
+      }
+      .hero .glow { background: radial-gradient(circle, rgba(201,162,75,.35), transparent 65%); }
+      .hero h1 { color: #f8efdb; font-weight: 700; letter-spacing: .005em; }
+      .hero h1 em, .hero .tagline strong { color: var(--gold-bright); }
+      .grad-text { background: linear-gradient(94deg, #e6c878, #c9a24b 45%, #f0d896 70%, #a37f2e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .hero .rule { color: var(--gold-bright); letter-spacing: .32em; text-transform: uppercase; }
+      .hero .tagline { color: #eadfc6; }
+      .hero .points span { border-color: rgba(201,162,75,.45); color: #eadfc6; background: rgba(43,6,13,.35); }
+      .hero .points b { color: var(--gold-bright); }
+      .hero-photo .frame {
+        border: 2px solid var(--gold); outline: 6px double rgba(201,162,75,.5); outline-offset: 5px;
+        border-radius: 999px 999px 10px 10px; overflow: hidden; box-shadow: 0 34px 60px -28px rgba(0,0,0,.65);
+      }
+      .hero-photo .ring { border-color: rgba(201,162,75,.4); }
+      .chip-float { background: rgba(43,6,13,.82); color: #f3dfae; border: 1px solid rgba(201,162,75,.6); backdrop-filter: blur(4px); border-radius: 3px; }
+      .chip-float small { color: #cdb287; }
+      .chip-float .dot { background: var(--gold); }
+      .marquee { background: var(--maroon-950); border-top: 1px dashed rgba(201,162,75,.65); border-bottom: 1px dashed rgba(201,162,75,.65); color: #ecd9a8; }
+      .marquee .seq i { color: var(--gold); }
+
+      /* Section voice — letterspaced gold kickers, serif heads, thread flourish */
+      .sec-head .kicker, .mech-head .m-label, .o-label { letter-spacing: .34em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; }
+      .sec-head h2, .mech-head h2 { color: var(--maroon-900); font-weight: 700; }
+      .sec-head .flourish span, .mech-head .m-rule { color: var(--gold-deep); }
+      .products-band { background: linear-gradient(180deg, #efe3cb, #f7efe0); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .mech.alt, #track { background: #efe3cb !important; }
+      .tryon { background: linear-gradient(180deg, #f7efe0, #efe3cb); }
+      .tryon-bgword { color: rgba(87,16,31,.07); font-family: "Playfair Display", Georgia, serif; letter-spacing: .08em; }
+      .tryon-stage { background: radial-gradient(90% 70% at 50% 30%, #fffaf0, #f1e4c9); border: 1px solid var(--line); outline: 4px double rgba(163,127,46,.35); outline-offset: -10px; }
+      .tryon-tab.is-on { background: var(--maroon-800); color: #f3dfae; border-color: var(--gold); }
+
+      /* Cards — like folded fabric on a counter: ivory, gold-ruled, arched photo */
+      .card { background: #fffdf6; border: 1px solid #d9c294; border-radius: 6px; box-shadow: 0 14px 28px -20px rgba(61,10,20,.35); }
+      .card::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+      .card .ph { border-radius: 130px 130px 0 0; border-bottom: 3px double var(--gold); }
+      .card .tag { left: 50%; transform: translateX(-50%); top: .85rem; white-space: nowrap; }
+      .card h3 { color: var(--maroon-900); }
+      .card .price { color: var(--maroon-700); font-family: "Playfair Display", Georgia, serif; }
+      .cat { border-radius: 6px; border: 1px solid rgba(201,162,75,.55); }
+      .cat .count { color: var(--gold-bright); letter-spacing: .14em; text-transform: uppercase; }
+      input, select, textarea { border-color: #d9c294 !important; background: #fffdf6 !important; }
+      input:focus, select:focus, textarea:focus { outline: 2px solid rgba(201,162,75,.65); outline-offset: 1px; }
+      .why-band { background: linear-gradient(168deg, #57101f, #2b060d); }
+      footer { background: var(--maroon-950); }
+      @media (prefers-reduced-motion: reduce) { .grad-text { animation: none; } }
     </style>
   </head>
   <body>
@@ -1358,7 +1440,7 @@
           <div class="flourish"><span>◆</span></div>
         </div>
         <div class="tryon-stage reveal rvt" id="tryonStage">
-          <div class="tryon-bgword" id="tryBgWord" aria-hidden="true">STYLE</div>
+          <div class="tryon-bgword" id="tryBgWord" aria-hidden="true">WIRSA</div>
           <div class="tryon-floor" aria-hidden="true"></div>
           <div class="tryon-tabs" id="tryonTabs" role="tablist" aria-label="Try-on categories">
             <button class="tryon-tab is-on" data-tcat="Shalwar Kameez" type="button">Shalwar Kameez</button>
@@ -2751,7 +2833,7 @@
       }
       var trySetWidth = 0;
       var TRY_ACCENTS = { "Shalwar Kameez": "#71182b", "Kurta": "#1e40af", "Waistcoat": "#6d28d9", "Shoes": "#8a5a13" };
-      var TRY_WORDS = { "Shalwar Kameez": "STYLE", "Kurta": "KURTA", "Waistcoat": "GRACE", "Shoes": "STEP" };
+      var TRY_WORDS = { "Shalwar Kameez": "WIRSA", "Kurta": "ADAB", "Waistcoat": "SHAAN", "Shoes": "RAWAYAT" };
       function tryCatFor(p) {
         var n = (p.name || "").toLowerCase();
         if (n.indexOf("kurta") > -1) return "Kurta";
